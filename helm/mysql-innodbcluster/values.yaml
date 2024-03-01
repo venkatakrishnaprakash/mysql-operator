@@ -2,22 +2,22 @@ image:
   pullPolicy: IfNotPresent
   pullSecrets:
     enabled: false
-    secretName:
+    secretName: mycluster-cluster-secret
 
 
 credentials:
   root:
     user: root
-#    password: sakila
+    password: root@2024
     host: "%"
 
 tls:
-  useSelfSigned: false
+  useSelfSigned: true
 #  caSecretName:
 #  serverCertAndPKsecretName:
 #  routerCertAndPKsecretName: # our use router.certAndPKsecretName
 
-#serverVersion: 8.0.31
+serverVersion: 8.3.0
 serverInstances: 3
 routerInstances: 1 # or use router.instances
 baseServerId: 1000
@@ -164,14 +164,14 @@ baseServerId: 1000
 #    credentials:
 
 
-#backupProfiles:
-#- name: dump-instance-profile-pvc
-#  dumpInstance:
-#    dumpOptions:
-#      excludeSchemas: ["excludeme"]
-#    storage:
-#      persistentVolumeClaim:
-#        claimName: backup-volume-claim-1
+backupProfiles:
+- name: dump-instance-profile-pvc
+  dumpInstance:
+    dumpOptions:
+      excludeSchemas: ["excludeme"]
+    storage:
+      persistentVolumeClaim:
+        claimName: backup-volume-claim-1
 #- name: dump-instance-profile-oci
 #  dumpInstance:
 #    dumpOptions:
