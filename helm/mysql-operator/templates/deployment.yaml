@@ -16,8 +16,10 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/version: "{{ default .Chart.AppVersion }}"
     app.kubernetes.io/component: controller
-    app.kubernetes.io/managed-by: helm
-    app.kubernetes.io/created-by: helm
+    #app.kubernetes.io/managed-by: helm
+    #app.kubernetes.io/created-by: helm
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   replicas: 1
   selector:
