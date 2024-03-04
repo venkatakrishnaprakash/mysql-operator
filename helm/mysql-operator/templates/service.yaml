@@ -5,6 +5,10 @@ metadata:
   namespace: {{ if and (.Release.IsInstall) (eq .Release.Namespace "default") }}{{ fail "Please provide a namespace with -n/--namespace" }}{{ else }}{{  .Release.Namespace }}{{ end }}
   labels:
     name: mysql-operator
+    app.kubernetes.io/managed-by: helm
+  annotations:  
+    meta.helm.sh/release-name: test-my
+    meta.helm.sh/release-namespace: test
 spec:
   type: ClusterIP
   ports:
