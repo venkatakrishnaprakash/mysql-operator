@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   pullSecrets:
-    enabled: false
+    enabled: true
     secretName: mycluster-cluster-secret
 
 
