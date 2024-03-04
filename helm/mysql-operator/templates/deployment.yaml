@@ -20,6 +20,9 @@ metadata:
     #app.kubernetes.io/created-by: helm
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
+  annotations:  
+    meta.helm.sh/release-name: test-my
+    meta.helm.sh/release-namespace: test
 spec:
   replicas: 1
   selector:
